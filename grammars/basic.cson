@@ -1,0 +1,58 @@
+scopeName: 'source.basic'
+name: 'BASIC'
+fileTypes: [ 'bas' ]
+patterns: [
+  {
+    # line number definition
+    match: '^\\s*\\d+'
+    name: 'entity.name.tag.basic'
+  }
+  {
+    # line number reference
+    match: '\\b((?i)THEN|ELSE|GO\\s*TO|GOSUB)\\s*(\\d+)'
+    captures:
+      1: name: 'keyword.control.basic'
+      2: name: 'entity.name.tag.basic'
+  }
+  {
+    # number
+    match: '\\b(?:\\d\\.|\\d+\\.\\d+|\\.\\d+|\\d+)(?:[Ee][-+]?\\d+)?\\b'
+    name: 'constant.numeric.basic'
+  }
+  {
+    # string
+    match: '"[^"]*"'
+    name: 'string.quoted.double.basic'
+  }
+  {
+    # comment
+    match: '(?i:REM.*)'
+    name: 'comment.line.basic'
+  }
+  {
+    # flow control statement
+    match: '\\b(?i:FOR|NEXT|IF|THEN|ELSE|GO\\s*TO|GOSUB)\\b'
+    name: 'keyword.control.basic'
+  }
+  {
+    # other statement
+    match: '\\b(?i:\\?|\\&|\'|\\!|ABSOLUTE|ACCESS|AS|BASE|BEEP|BLOAD|BSAVE|CALL|CASE|CHAIN|CHDIR|CIRCLE|CLEAR|CLOSE|CLS|COLOR|COM|COMMON|CONST|DATA|DECLARE|DEF|DEFDBL|DEFINT|DEFLNG|DEFSNG|DEFSTR|DIM|DO|DRAW|END|ENVIRON|ERASE|ERROR|EXIT|FIELD|FILES|FUNCTION|GET|HOME|INPUT|INPUT#|IOCTL|KEY|KILL|LET|LINE|LOCATE|LOCK|LOOP|LPRINT|LSET|MKDIR|NAME|NEW|ON|OPEN|OPTION|OUT|PAINT|PALETTE|PCLEAR0|PCLEAR1|PCOPY|PEN|PLAY|PMAP|PMODE0|POKE|PRESET|PRINT|PRINT#|PSET|PUT|RANDOMIZE|READ|REDIM|REM|RESET|RESTORE|RESUME|RETURN|RMDIR|RSET|RUN|SCREEN|SEEK|SELECT|SHARED|SHELL|SLEEP|SOUND|SOUNDRND|STATIC|STOP|STRIG|SUB|SWAP|SYSTEM|TIMER|TROFF|TRON|TYPE|UNLOCK|USING|VIEW|WAIT|WEND|WHILE|WINDOW|WRITE)\\b'
+    name: 'entity.name.type.basic'
+  }
+  {
+    # function
+    match: '\\b(?i:ABS|ASC|ATN|BIN$|BRK|CHR$|CINT|COS|CSNG|CTL|D2R|DATE$|EOF|EXP|HEIGHT|HEX$|INKEY$|INPUT$|INSTR|INT|ITM|LEFT$|LEN|LG|LIN|LN|LOG|LOG10|MID$|NINT|NUM|OCT$|PEEK|POS|R2D|REC|RIGHT$|RND|SGN|SIN|SPA|SPACE$|SPC$|SQR|SQRT|STR$|STRING$|SYS|TAB$|TAN|TIM|TIMER|TYP|UPS$|VAL|WIDTH)\\b'
+    name: 'entity.name.function.basic'
+  }
+  {
+    # other function
+    match: '\\b(\\w+[\\$%!]?)\\('
+    captures:
+      1: name: 'entity.name.function.basic'
+  }
+  {
+    # operator
+    match: '\\^|\\+|-|\\*\\*|\\*|/|=|\\(|<>|<=|=<|>=|=>|<|>|\\b(?i:MOD|NOT|AND|OR)\\b'
+    name: 'keyword.operator.basic'
+  }
+]

@@ -26,7 +26,7 @@ patterns: [
   }
   {
     # comment
-    match: '^(?i:REM.*|\'.*)'
+    match: '^(?i:REM.*|\'.*)|(?i:: REM.*)'
     name: 'comment.line.basic'
   }
   {

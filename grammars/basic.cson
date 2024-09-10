@@ -26,7 +26,7 @@ patterns: [
   }
   {
     # comment
-    match: '(?i:\bREM\b.*|^\'.*| \'.*)'
+    match: '(?i:\\bREM\\b.*|^\'.*| \'.*)'
     name: 'comment.line.basic'
   }
   {
